@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Usuário</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #fce4ec 0%, #e1bee7 100%);
+      min-height: 100vh;
+    }
+    .card-cadastro {
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      border: none;
+      background: #fff0f6;
+    }
+    .btn-cadastrar {
+      background: linear-gradient(135deg, #d500f9 0%, #ff4081 100%);
+      border: none;
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(213, 0, 249, 0.3);
+    }
+    .btn-cadastrar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 64, 129, 0.3);
+    }
+    .form-control:focus {
+      border-color: #d500f9;
+      box-shadow: 0 0 0 0.25rem rgba(213, 0, 249, 0.25);
+    }
+    .btn-eye {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 0 10px;
+      color: #d500f9;
+    }
+    .text-primary {
+      color: #d500f9 !important;
+    }
+    .input-group-text {
+      background-color: #f3e5f5;
+      border-color: #e1bee7;
+      color: #9c27b0;
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="card card-cadastro p-4">
+          <div class="card-body">
+            <div class="text-center mb-4">
+              <h2 class="fw-bold text-primary">
+                <i class="fas fa-user-plus me-2"></i>Cadastro
+              </h2>
+              <p class="text-muted">Preencha seus dados para criar uma conta</p>
+            </div>
+            <form id="frmCadastro">
+              <div class="mb-3">
+                <label for="txtNome" class="form-label">Nome Completo</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  <input type="text" class="form-control" id="txtNome" placeholder="Seu nome">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="txtLogin" class="form-label">Nome de Usuário</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-at"></i></span>
+                  <input type="text" class="form-control" id="txtLogin" placeholder="Seu login">
+                </div>
+              </div>
+              <div class="mb-4">
+                <label for="txtSenha" class="form-label">Senha</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                  <input type="password" class="form-control" id="txtSenha" placeholder="Sua senha">
+                  <button class="btn-eye" type="button" onclick="toggleSenha()">
+                    <i class="fas fa-eye" id="iconeSenha"></i>
+                  </button>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-cadastrar w-100 py-2">
+                <i class="fas fa-user-plus me-2"></i>Cadastrar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSenha() {
+      const input = document.getElementById("txtSenha");
+      const icon = document.getElementById("iconeSenha");
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
